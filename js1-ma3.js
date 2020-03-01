@@ -93,7 +93,7 @@ listTag.appendChild(listElement);
 console.log(listTag);
 
 const list = document.querySelector(".animals");
-list.appendChild(listTag);
+list.insertBefore(listTag, list.children[1]);
 console.dir(list);
 
 
@@ -115,8 +115,14 @@ fetch(gamesUrl)
         console.dir(error);
     });
 
-function loadGames() {
+/*function loadGames() {
   const div = document.querySelector(".rating");
   const games = json.ratings;
   const {ratings} = json;
+}*/
+
+function loadGames(jsonData) {
+    let element = document.querySelector("rating");
+    let {rating} = jsonData;
+    element.innerText = rating;
 }
